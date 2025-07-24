@@ -1,0 +1,28 @@
+# read design 
+read_verilog -sv ../RTL/CHKN_Single.sv ../../Find_Min1Min2_16x2/RTL/Find_Min1Min2_16x2.sv ../../../Add_Saturate/RTL/Add_Saturate.sv
+
+# elaborate design hierarchy
+hierarchy -check -top CHKN_Single
+
+# the high-level stuff
+proc; opt; 
+fsm; opt; 
+memory; opt;
+
+
+# mapping to internal cell library
+techmap; opt
+
+# mapping flip-flops to mycells.lib
+# dfflibmap -liberty ../../../../Cell_Lib/gscl45nm/gscl45nm.lib #CMOS/cmos_cells.lib
+
+# mapping logic to mycells.lib
+# abc -liberty ../../../../Cell_Lib/gscl45nm/gscl45nm.lib #CMOS/cmos_cells.lib
+
+# stat -liberty ../../../../Cell_Lib/gscl45nm/gscl45nm.lib # CMOS/cmos_cells.lib
+
+# cleanup
+clean
+
+# write synthesized design
+write_verilog -noattr ../RTL/synth.v
