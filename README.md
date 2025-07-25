@@ -51,4 +51,4 @@ make sim
 This project is licensed under the MIT License.
 
 ## Contact
-For inquiries about other coding rates or commercial licensing, please contact me at mehdimoore@hotmail.com.
+For inquiries about other coding rates, optimised implementation,  or commercial licensing, please contact me at mehdimoore@hotmail.com.
